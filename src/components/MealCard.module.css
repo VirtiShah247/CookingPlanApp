@@ -1,0 +1,153 @@
+/* MealCard.module.css */
+
+.card {
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: all var(--transition);
+  animation: bounceIn 0.45s ease forwards;
+}
+
+.card:hover {
+  border-color: rgba(108,99,255,0.3);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.header {
+  padding: 1.25rem 1.5rem 1rem;
+  background: var(--meal-gradient);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.mealTypeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.emoji {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+}
+
+/* ── Body ───────────────────────────────────────────────── */
+.body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mealName {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+/* ── Stats ──────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.statValue {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.statValue small {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ── Tags ───────────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: rgba(108,99,255,0.12);
+  color: var(--accent-light);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* ── Details / Ingredients ──────────────────────────────── */
+.details {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+  user-select: none;
+}
+
+.summary::-webkit-details-marker { display: none; }
+
+.summary:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.ingredientList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0.25rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.ingredientItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.ingredientItem:last-child { border-bottom: none; }
+.ingredientItem:hover { background: var(--bg-card-hover); }
+
+.ingName  { color: var(--text-primary); }
+.ingQty   { color: var(--text-muted); font-size: 0.8rem; }

@@ -1,0 +1,215 @@
+/* PreferenceForm.module.css */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Diet Chips ─────────────────────────────────────────── */
+.chipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.chipActive {
+  border-color: var(--accent-primary);
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--accent-light);
+  box-shadow: 0 0 0 1px var(--accent-primary);
+}
+
+.chipEmoji {
+  font-size: 1rem;
+}
+
+/* ── Time Cards ─────────────────────────────────────────── */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.timeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+
+.timeCard:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.timeCardActive {
+  border-color: var(--accent-primary);
+  background: rgba(108, 99, 255, 0.12);
+  box-shadow: 0 0 0 1px var(--accent-primary), var(--shadow-glow);
+}
+
+.timeLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.timeDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.timeCardActive .timeLabel {
+  color: var(--accent-light);
+}
+
+/* ── Budget Cards ───────────────────────────────────────── */
+.budgetGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.budgetCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.budgetCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--tier-color);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.budgetCard:hover::before,
+.budgetCardActive::before {
+  opacity: 1;
+}
+
+.budgetCard:hover {
+  border-color: var(--tier-color);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.budgetCardActive {
+  border-color: var(--tier-color);
+  background: color-mix(in srgb, var(--tier-color) 10%, var(--bg-card));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--tier-color) 30%, transparent);
+}
+
+.budgetLabel {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--tier-color);
+}
+
+.budgetDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ── Generate Button ────────────────────────────────────── */
+.generateBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-lg);
+  border: none;
+  background: linear-gradient(135deg, var(--accent-primary), #9b6fff);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+  animation: pulse-ring 2.5s infinite;
+}
+
+.generateBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.55);
+}
+
+.generateBtn:active {
+  transform: scale(0.98);
+}
+
+.generateIcon {
+  font-size: 1.2rem;
+}

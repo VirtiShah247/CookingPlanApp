@@ -1,0 +1,172 @@
+/* GroceryList.module.css */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.progressLabel {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.totalCost {
+  color: var(--text-secondary);
+}
+
+.totalCost strong {
+  color: var(--accent-light);
+  font-size: 1.05rem;
+}
+
+/* ── Progress Bar ────────────────────────────────────────── */
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-input);
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-light));
+  border-radius: 99px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── List ────────────────────────────────────────────────── */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item {
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+
+.item:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(108, 99, 255, 0.2);
+}
+
+.itemLabel {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  user-select: none;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0; width: 0;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  background: var(--bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.itemLabel:hover .checkmark {
+  border-color: var(--accent-primary);
+}
+
+.checkbox:checked ~ .checkmark {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox:checked ~ .checkmark::after {
+  display: block;
+}
+
+.itemName {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex-grow: 1;
+  transition: all var(--transition);
+}
+
+.itemChecked .itemName {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.itemQty {
+  font-size: 0.82rem;
+  background: var(--bg-input);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  font-family: monospace;
+}
+
+.itemCost {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 60px;
+  text-align: right;
+  font-family: monospace;
+}
+
+.itemChecked .itemCost {
+  color: var(--text-muted);
+}
+
+/* ── All Done Message ────────────────────────────────────── */
+.allDone {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  text-align: center;
+  font-weight: 600;
+  animation: bounceIn 0.5s ease forwards;
+}
